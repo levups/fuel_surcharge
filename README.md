@@ -1,39 +1,60 @@
-# FuelSurcharge
+# Transporters Fuel surchage fetcher
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/fuel_surcharge`. To experiment with that code, run `bin/console` for an interactive prompt.
+Retrieve current air and road rates applied to transporters shipping costs and
+convert them to multipliers we can directly use in your app to calculate
+precise shipping costs.
 
-TODO: Delete this and the text above, and describe your gem
+## Implemented transporters
 
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'fuel_surcharge'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install fuel_surcharge
+  - Colissimo
+  - Chronopost
+  - Tnt
 
 ## Usage
 
-TODO: Write usage instructions here
+Install the gem:
 
-## Development
+    $ gem install fuel_surcharge
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Run the gem:
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+    $ fuel_surcharge
 
-## Contributing
+Get the result:
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/bobmaerten/fuel_surcharge.
+    ---------------------------------------------------
+    # Fuel surcharges for Colissimo on 12-2018
+    # Fetched from https://www.colissimo.entreprise.laposte.fr/fr/system/files/imagescontent/docs/indice_gazole.xml
 
-## License
+    AIR  = 3,58% / 1.0358
+    ROAD = 2,24% / 1.0224
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+    ---------------------------------------------------
+    # Fuel surcharges for Chronopost on Novembre 2018
+    # Fetched from https://www.chronopost.fr/fr/surcharge-carburant
+
+    AIR  = 20,15% / 1.2015
+    ROAD = 14,80% / 1.1480
+
+    ---------------------------------------------------
+    # Fuel surcharges for Tnt on novembre 2018
+    # Fetched from https://www.tnt.com/express/fr_fr/site/home/comment-expedier/facturation/surcharges/baremes-et-historiques.html
+
+    AIR  = 18,50% / 1.1850
+    ROAD = 12,10% / 1.1210
+
+Or use it in your app:
+
+    require 'fuel_surcharge'
+
+    colissimo = FuelSurcharge::Colissimo.new
+    colissimo.road_multiplier      # 0.10224e1
+    colissimo.air_multiplier       # 0.10358e1
+
+    chronopost = FuelSurcharge::Chronopost.new
+    chronopost.road_multiplier     # 0.1148e1
+    chronopost.air_multiplier      # 0.12015e1
+
+    tnt = FuelSurcharge::Tnt.new
+    tnt.road_multiplier            # 0.1121e1
+    tnt.air_multiplier             # 0.1185e1
