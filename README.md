@@ -6,9 +6,9 @@ precise shipping costs.
 
 ## Implemented transporters
 
-  - Colissimo
-  - Chronopost
-  - Tnt
+  - [Colissimo](https://www.colissimo.entreprise.laposte.fr/fr/system/files/imagescontent/docs/indice_gazole.xml)
+  - [Chronopost](https://www.chronopost.fr/fr/surcharge-carburant)
+  - [Tnt](https://www.tnt.com/express/fr_fr/site/home/comment-expedier/facturation/surcharges/baremes-et-historiques.html)
 
 ## Usage
 
