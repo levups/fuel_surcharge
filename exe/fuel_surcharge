@@ -1,3 +1,17 @@
 #!/usr/bin/env ruby
 
 require "fuel_surcharge"
+
+colissimo  = FuelSurcharge::Colissimo.new
+chronopost = FuelSurcharge::Chronopost.new
+tnt        = FuelSurcharge::Tnt.new
+
+[colissimo, chronopost, tnt].each do |fuel_surcharge|
+  puts "---------------------------------------------------"
+  puts "# Fuel surcharges for #{fuel_surcharge.class.name.split('::').last} on #{fuel_surcharge.time_period}"
+  puts "# Fetched from #{fuel_surcharge.url}"
+  puts
+  puts "AIR  = #{fuel_surcharge.air_percentage} / #{format '%.4f', fuel_surcharge.air_multiplier}"
+  puts "ROAD = #{fuel_surcharge.road_percentage} / #{format '%.4f', fuel_surcharge.road_multiplier}"
+  puts
+end

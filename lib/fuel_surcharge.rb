@@ -1,6 +1,6 @@
-require "fuel_surcharge/version"
+# frozen_string_literal: true
 
-module FuelSurcharge
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require "fuel_surcharge/chronopost"
+require "fuel_surcharge/colissimo"
+require "fuel_surcharge/tnt"
+require "fuel_surcharge/version"

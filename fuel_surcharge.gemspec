@@ -1,8 +1,11 @@
 lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
 require "fuel_surcharge/version"
 
 Gem::Specification.new do |spec|
+  spec.required_ruby_version = "~> 2.3"
+
   spec.name    = "fuel_surcharge"
   spec.version = FuelSurcharge::VERSION
   spec.authors = ["Bob Maerten", "Clément Joubert"]
@@ -29,6 +32,8 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+
+  spec.add_dependency "http", "~> 4.0"
 
   spec.add_development_dependency "bundler", "~> 1.17"
   spec.add_development_dependency "minitest", "~> 5.0"
