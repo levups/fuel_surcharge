@@ -22,7 +22,7 @@ module FuelSurcharge
     end
 
     def url
-      'https://www.chronopost.fr/fr/surcharge-carburant'
+      "https://www.chronopost.fr/fr/surcharge-carburant"
     end
 
     private

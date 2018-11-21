@@ -7,7 +7,7 @@ module FuelSurcharge
   class ColissimoTest < Minitest::Test
     def test_time_period
       nominal_case do
-        assert_equal '11-2018', @colissimo.time_period
+        assert_equal "12-2018", @colissimo.time_period
       end
 
       failing_case do
@@ -17,8 +17,8 @@ module FuelSurcharge
 
     def test_air
       nominal_case do
-        assert_equal "3,01%", @colissimo.air_percentage
-        assert_equal 1.0301,  @colissimo.air_multiplier
+        assert_equal "3,58%", @colissimo.air_percentage
+        assert_equal 1.0358,  @colissimo.air_multiplier
       end
 
       failing_case do
@@ -29,8 +29,8 @@ module FuelSurcharge
 
     def test_road
       nominal_case do
-        assert_equal "1,97%", @colissimo.road_percentage
-        assert_equal 1.0197,  @colissimo.road_multiplier
+        assert_equal "2,24%", @colissimo.road_percentage
+        assert_equal 1.0224,  @colissimo.road_multiplier
       end
 
       failing_case do
