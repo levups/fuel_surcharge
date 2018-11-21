@@ -1,0 +1,138 @@
+<!-- 
+
+Fichier de donnees pour la construction des tableaux des Coefficient Ajustement Petrole 
+Colissimo Box
+ce fichier permet une actualisation automatique pour les 3 langues (Fr En De) des pages suivante :
+
+https://www.colissimo.entreprise.laposte.fr/fr/ajustement-petrol
+https://www.colissimo.entreprise.laposte.fr/en/ajustement-petrol
+https://www.colissimo.entreprise.laposte.fr/de/ajustement-petrol
+
+ce fichier fonctionne avec un script indice_gazole.js appele depuis le html de chacune de ces 3 pages.
+le html necessite de contenir un table avec la class "lang_fr" ou "lang_en" ou "lang_de" 
+pour affichier les mois dans la langue correcpondante et un id "cap" et un autre table 
+idem pour le CNR avec id "cnr" 
+
+// COMMENT PROCEDER ? //
+Chaque mois il est faut simplement ajouter un noeud xml (cap_mois) en tete de liste dans cap et dans idem dans cnr 
+puis retirer le dernier noeud de chacun de ces 2 items (cap et cnr)
+
+-->
+<indice_gazole>
+	<!-- Tableau indice CAP -->
+	<cap>
+		<cap_mois>
+			<titre>12-2018</titre>
+			<routier>2,24%</routier>
+			<aerien>3,58%</aerien>
+		</cap_mois>
+		<cap_mois>
+			<titre>11-2018</titre>
+			<routier>1,97%</routier>
+			<aerien>3,01%</aerien>
+		</cap_mois>
+		<cap_mois>
+			<titre>10-2018</titre>
+			<routier>1,79%</routier>
+			<aerien>2,33%</aerien>
+		</cap_mois>
+		<cap_mois>
+			<titre>09-2018</titre>
+			<routier>1,71%</routier>
+			<aerien>2,14%</aerien>
+		</cap_mois>
+		<cap_mois>
+			<titre>08-2018</titre>
+			<routier>1,77%</routier>
+			<aerien>2,06%</aerien>
+		</cap_mois>
+		<cap_mois>
+			<titre>07-2018</titre>
+			<routier>1,80%</routier>
+			<aerien>2,68%</aerien>
+		</cap_mois>
+		<cap_mois>
+			<titre>06-2018</titre>
+			<routier>1,46%</routier>
+			<aerien>1,34%</aerien>
+		</cap_mois>
+		<cap_mois>
+			<titre>05-2018</titre>
+			<routier>1,21%</routier>
+			<aerien>0,00%</aerien>
+		</cap_mois>
+		<cap_mois>
+			<titre>04-2018</titre>
+			<routier>1,16%</routier>
+			<aerien>0,00%</aerien>
+		</cap_mois>
+		<cap_mois>
+			<titre>03-2018</titre>
+			<routier>1,36%</routier>
+			<aerien>0,73%</aerien>
+		</cap_mois>
+		<cap_mois>
+			<titre>02-2018</titre>
+			<routier>1,14%</routier>
+			<aerien>0,00%</aerien>
+		</cap_mois>
+	</cap>
+	<!-- Tableau indice CNR -->
+	<cnr>
+		<cnr_mois>
+			<titre>09-2018</titre>
+			<indice>143,47</indice>
+			<prix>2,189</prix>
+		</cnr_mois>
+		<cnr_mois>
+			<titre>08-2018</titre>
+			<indice>140,53</indice>
+			<prix>2,118</prix>
+		</cnr_mois>
+		<cnr_mois>
+			<titre>07-2018</titre>
+			<indice>139,16</indice>
+			<prix>2,098</prix>
+		</cnr_mois>
+		<cnr_mois>
+			<titre>06-2018</titre>
+			<indice>140,25</indice>
+			<prix>2,090</prix>
+		</cnr_mois>
+		<cnr_mois>
+			<titre>05-2018</titre>
+			<indice>140,72</indice>
+			<prix>2,155</prix>
+		</cnr_mois>
+		<cnr_mois>
+			<titre>04-2018</titre>
+			<indice>135,06</indice>
+			<prix>2,015</prix>
+		</cnr_mois>
+		<cnr_mois>
+			<titre>03-2018</titre>
+			<indice>130,79</indice>
+			<prix>1,858</prix>
+		</cnr_mois>
+		<cnr_mois>
+			<titre>02-2018</titre>
+			<indice>130,03</indice>
+			<prix>1,849</prix>
+		</cnr_mois>
+		<cnr_mois>
+			<titre>01-2018</titre>
+			<indice>133,37</indice>
+			<prix>1,952</prix>
+		</cnr_mois>
+		<cnr_mois>
+			<titre>12-2017</titre>
+			<indice>129,66</indice>
+			<prix>1,817</prix>
+		</cnr_mois>
+		<cnr_mois>
+			<titre>11-2017</titre>
+			<indice>128,09</indice>
+			<prix>1,760</prix>
+		</cnr_mois>
+	</cnr>
+</indice_gazole>

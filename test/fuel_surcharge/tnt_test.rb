@@ -58,27 +58,16 @@ module FuelSurcharge
 
     private
 
-    # HTTP would return arrays of unfreeze string so here we have to emulate it
-    def extracted_values
-      [
-        [+" novembre 2018 ",  +"12,10%"],
-        [+"octobre 2018 ",    +"11,95%"],
-        [+" septembre 2018 ", +"11,95%"],
-        [+" novembre 2018 ",  +"18,50%"],
-        [+"octobre 2018 ",    +"17,50%"],
-        [+" septembre 2018 ", +"17,50%"]
-      ]
-    end
-
     def nominal_case
-      Tnt.stub_any_instance(:extracted_values, extracted_values) do
+      sample_response = File.read("test/fixtures/tnt_sample_response.html")
+      HTTPRequest.stub_any_instance :response, sample_response do
         @tnt = Tnt.new
         yield
       end
     end
 
     def failing_case
-      Tnt.stub_any_instance :extracted_values, [] do
+      HTTPRequest.stub_any_instance :response, "" do
         @tnt = Tnt.new
         yield
       end

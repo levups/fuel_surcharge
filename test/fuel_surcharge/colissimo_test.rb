@@ -59,35 +59,16 @@ module FuelSurcharge
 
     private
 
-    def sample_response
-      <<~XML
-        <indice_gazole>
-          <!-- Tableau indice CAP -->
-          <cap>
-            <cap_mois>
-              <titre>11-2018</titre>
-              <routier>1,97%</routier>
-              <aerien>3,01%</aerien>
-            </cap_mois>
-            <cap_mois>
-              <titre>10-2018</titre>
-              <routier>1,79%</routier>
-              <aerien>2,33%</aerien>
-            </cap_mois>
-          </cap>
-        </indice_gazole>
-      XML
-    end
-
     def nominal_case
-      Colissimo.stub_any_instance(:response, sample_response) do
+      sample_response = File.read("test/fixtures/colissimo_sample_response.xml")
+      HTTPRequest.stub_any_instance :response, sample_response do
         @colissimo = Colissimo.new
         yield
       end
     end
 
     def failing_case
-      Colissimo.stub_any_instance :response, '' do
+      HTTPRequest.stub_any_instance :response, "" do
         @colissimo = Colissimo.new
         yield
       end

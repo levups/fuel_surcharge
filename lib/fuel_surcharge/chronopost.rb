@@ -27,14 +27,12 @@ module FuelSurcharge
 
     private
 
-    def response
-      ::HTTP.timeout(10).get(url)
-    rescue HTTP::Error
-      ''
-    end
-
     def source_html
-      response.to_s.delete("\n").gsub(/\s+/, " ")
+      HTTPRequest.new(url)
+                 .response
+                 .to_s
+                 .delete("\n")
+                 .gsub(/\s+/, " ")
     end
 
     def tables

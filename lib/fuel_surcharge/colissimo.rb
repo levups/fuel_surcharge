@@ -57,14 +57,8 @@ module FuelSurcharge
 
     private
 
-    def response
-      ::HTTP.timeout(10).get(url)
-    rescue HTTP::Error
-      ""
-    end
-
     def xml_root
-      doc = ::REXML::Document.new response.to_s
+      doc = ::REXML::Document.new HTTPRequest.new(url).response.to_s
       doc.root
     end
   end

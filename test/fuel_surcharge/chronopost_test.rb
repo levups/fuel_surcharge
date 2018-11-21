@@ -60,14 +60,14 @@ module FuelSurcharge
 
     def nominal_case
       response = File.read("test/fixtures/chronopost_sample_response.html")
-      Chronopost.stub_any_instance :response, response do
+      HTTPRequest.stub_any_instance :response, response do
         @chronopost = Chronopost.new
         yield
       end
     end
 
     def failing_case
-      Chronopost.stub_any_instance :response, '' do
+      HTTPRequest.stub_any_instance :response, "" do
         @chronopost = Chronopost.new
         yield
       end
