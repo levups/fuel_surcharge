@@ -39,6 +39,8 @@ module FuelSurcharge
     end
 
     def test_live_values
+      skip if ENV["SKIP_LIVE_TESTS"]
+
       live_chronopost = Chronopost.new
       live_date = Date.parse live_chronopost.time_period
 

@@ -40,6 +40,8 @@ module FuelSurcharge
     end
 
     def test_live
+      skip if ENV["SKIP_LIVE_TESTS"]
+
       live_colissimo = Colissimo.new
       live_date = Date.parse live_colissimo.time_period
 
