@@ -19,21 +19,15 @@ module FuelSurcharge
     end
 
     def time_period
-      return unless @road_values
-
-      @road_values.first.to_s.strip
+      @road_values&.first&.to_s
     end
 
     def road_percentage
-      return unless @road_values
-
-      @road_values.last.to_s
+      @road_values&.last&.to_s
     end
 
     def air_percentage
-      return unless @air_values
-
-      @air_values.last.to_s
+      @air_values&.last&.to_s
     end
 
     def road_multiplier
