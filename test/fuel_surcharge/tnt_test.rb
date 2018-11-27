@@ -3,7 +3,7 @@
 require "test_helper"
 
 module FuelSurcharge
-  class TnTTest < Minitest::Test
+  class TNTTest < Minitest::Test
     def test_time_period
       nominal_case do
         assert_equal "novembre 2018", @tnt.time_period
@@ -63,14 +63,14 @@ module FuelSurcharge
     def nominal_case
       sample_response = File.read("test/fixtures/tnt_sample_response.html")
       HTTPRequest.stub_any_instance :response, sample_response do
-        @tnt = Tnt.new
+        @tnt = TNT.new
         yield
       end
     end
 
     def failing_case
       HTTPRequest.stub_any_instance :response, "" do
-        @tnt = Tnt.new
+        @tnt = TNT.new
         yield
       end
     end

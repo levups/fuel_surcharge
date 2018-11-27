@@ -4,7 +4,7 @@ require "fuel_surcharge/http_request"
 require "fuel_surcharge/string_formatter"
 
 module FuelSurcharge
-  class Tnt
+  class TNT
     using StringFormatter
     def initialize
       @road_values = extracted_values.first
