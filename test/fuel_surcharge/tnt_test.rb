@@ -38,24 +38,29 @@ module FuelSurcharge
       end
     end
 
+    FRENCH_MONTHS = %w[janvier février mars avril mai juin juillet août
+                       septembre octobre novembre décembre].freeze
+
     def test_live_values
       skip if ENV["SKIP_LIVE_TESTS"]
 
-      live_tnt  = Tnt.new
-      live_date = Date.parse live_tnt.time_period
+      @tnt = TNT.new
+      time_period = @tnt.time_period
 
-      assert_equal Date.today.month, live_date.month
-      assert_equal Date.today.year,  live_date.year
+      assert_kind_of String, time_period.downcase
 
-      assert_kind_of String,     live_tnt.air_percentage
-      refute_empty               live_tnt.air_percentage
-      assert_kind_of BigDecimal, live_tnt.air_multiplier
-      assert_operator live_tnt.air_multiplier, :>=, 1.0
+      assert time_period.start_with?(FRENCH_MONTHS[Date.today.month])
+      assert time_period.end_with?(Date.today.year.to_s)
 
-      assert_kind_of String,     live_tnt.road_percentage
-      refute_empty               live_tnt.road_percentage
-      assert_kind_of BigDecimal, live_tnt.road_multiplier
-      assert_operator live_tnt.road_multiplier, :>=, 1.0
+      assert_kind_of String,     @tnt.air_percentage
+      refute_empty               @tnt.air_percentage
+      assert_kind_of BigDecimal, @tnt.air_multiplier
+      assert_operator @tnt.air_multiplier, :>=, 1.0
+
+      assert_kind_of String,     @tnt.road_percentage
+      refute_empty               @tnt.road_percentage
+      assert_kind_of BigDecimal, @tnt.road_multiplier
+      assert_operator @tnt.road_multiplier, :>=, 1.0
     end
 
     private
