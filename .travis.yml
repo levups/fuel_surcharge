@@ -1,6 +1,8 @@
 ---
 sudo: false
 
+dist: xenial
+
 language: ruby
 
 rvm:
@@ -17,7 +19,7 @@ cache:
   bundler: true
 
 before_install:
-  - gem install bundler -v 1.17.1
+  - gem install bundler
 
 script:
   - bundle install
