@@ -6,9 +6,12 @@ require "fuel_surcharge/string_formatter"
 module FuelSurcharge
   class TNT
     using StringFormatter
+
     def initialize
-      @road_values = extracted_values.first
-      @air_values  = extracted_values.last(3).first
+      latest_road_values_position = 0
+      latest_air_values_position = extracted_values.size.div(2)
+      @road_values = extracted_values[latest_road_values_position]
+      @air_values  = extracted_values[latest_air_values_position]
     end
 
     def url
@@ -43,6 +46,7 @@ module FuelSurcharge
 
     private
 
+    VALUES_REGEX = /Surcharge d[e\' ]+(.*) : (.*%)</.freeze
     # [
     #   [" novembre 2018 ",  "12,10%"],
     #   ["octobre 2018 ",    "11,95%"],
@@ -52,11 +56,11 @@ module FuelSurcharge
     #   [" septembre 2018 ", "17,50%"]
     # ]
     def extracted_values
-      @extracted_values ||=
-        HTTPRequest.new(url)
-                   .response
-                   .to_s
-                   .scan(/Surcharge d[e']+(.*): (.*)<br>$/)
+      @extracted_values ||= response.to_s.scan(VALUES_REGEX)
+    end
+
+    def response
+      @response ||= HTTPRequest.new(url).response
     end
   end
 end
