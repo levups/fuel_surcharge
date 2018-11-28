@@ -9,7 +9,7 @@ Rake::TestTask.new(:test) do |t|
 end
 
 GitHubChangelogGenerator::RakeTask.new :changelog do |config|
-  latest_release = `git tag --sort=committerdate | tail -n 1`.strip
+  latest_release = `git tag --sort=taggerdate | tail -n 1`.strip
   next_release   = "v#{FuelSurcharge::VERSION}"
 
   config.user                 = "levups"
