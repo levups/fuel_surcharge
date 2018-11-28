@@ -1,4 +1,4 @@
-# hcs/Makefile
+# fuel_surchage/Makefile
 
 # Don't forget : Makefiles use tabs indentation, not spaces !
 .PHONY: test watch
@@ -8,7 +8,7 @@ t  : test
 w  : watch
 
 test: ## Run all tests
-	@rake test
+	@bundle exec rake test
 
-watch: ## Run tests when a file changes (like Guard)
-	@ls **/*_test.rb | entr rake test
+watch: ## Run tests when a ruby file changes (like Guard)
+	@fd .rb | entr bundle exec rake test
