@@ -8,7 +8,7 @@ precise shipping costs.
 
   - [Colissimo](https://www.colissimo.entreprise.laposte.fr/fr/system/files/imagescontent/docs/indice_gazole.xml)
   - [Chronopost](https://www.chronopost.fr/fr/surcharge-carburant)
-  - [Tnt](https://www.tnt.com/express/fr_fr/site/home/comment-expedier/facturation/surcharges/baremes-et-historiques.html)
+  - [TNT](https://www.tnt.com/express/fr_fr/site/home/comment-expedier/facturation/surcharges/baremes-et-historiques.html)
 
 ## Usage
 
@@ -55,6 +55,6 @@ Or use it in your app:
     chronopost.road_multiplier     # 0.1148e1
     chronopost.air_multiplier      # 0.12015e1
 
-    tnt = FuelSurcharge::Tnt.new
+    tnt = FuelSurcharge::TNT.new
     tnt.road_multiplier            # 0.1121e1
     tnt.air_multiplier             # 0.1185e1
