@@ -1,8 +1,7 @@
 # Change Log
 
-## [Unreleased](https://github.com/levups/fuel_surcharge/tree/HEAD)
-
-[Full Changelog](https://github.com/levups/fuel_surcharge/compare/v0.1.0...HEAD)
+## [v0.2.0](https://github.com/levups/fuel_surcharge/tree/v0.2.0) (2018-11-28)
+[Full Changelog](https://github.com/levups/fuel_surcharge/compare/v0.1.0...v0.2.0)
 
 **Implemented enhancements:**
 
@@ -10,6 +9,7 @@
 
 **Merged pull requests:**
 
+- Generate changelog with github\_changelog\_generator gem [\#6](https://github.com/levups/fuel_surcharge/pull/6) ([bobmaerten](https://github.com/bobmaerten))
 - Adapt FuelSurcharge::TNT to TNT's website changes  [\#3](https://github.com/levups/fuel_surcharge/pull/3) ([czj](https://github.com/czj))
 - Upgrade Travis CI dist to Xenial [\#2](https://github.com/levups/fuel_surcharge/pull/2) ([czj](https://github.com/czj))
 
