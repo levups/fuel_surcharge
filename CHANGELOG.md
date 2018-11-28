@@ -1,5 +1,18 @@
 # Change Log
 
+## [Unreleased](https://github.com/levups/fuel_surcharge/tree/HEAD)
+
+[Full Changelog](https://github.com/levups/fuel_surcharge/compare/v0.1.0...HEAD)
+
+**Implemented enhancements:**
+
+- Rename Tnt class to TNT [\#5](https://github.com/levups/fuel_surcharge/issues/5)
+
+**Merged pull requests:**
+
+- Adapt FuelSurcharge::TNT to TNT's website changes  [\#3](https://github.com/levups/fuel_surcharge/pull/3) ([czj](https://github.com/czj))
+- Upgrade Travis CI dist to Xenial [\#2](https://github.com/levups/fuel_surcharge/pull/2) ([czj](https://github.com/czj))
+
 ## [v0.1.0](https://github.com/levups/fuel_surcharge/tree/v0.1.0) (2018-11-25)
 **Merged pull requests:**
 
