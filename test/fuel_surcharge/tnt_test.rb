@@ -45,11 +45,12 @@ module FuelSurcharge
       skip if ENV["SKIP_LIVE_TESTS"]
 
       @tnt = TNT.new
-      time_period = @tnt.time_period
 
-      assert_kind_of String, time_period.downcase
+      time_period   = @tnt.time_period
+      current_month = FRENCH_MONTHS[Date.today.month - 1]
 
-      assert time_period.start_with?(FRENCH_MONTHS[Date.today.month])
+      assert_kind_of String, time_period
+      assert time_period.downcase.start_with?(current_month)
       assert time_period.end_with?(Date.today.year.to_s)
 
       assert_kind_of String,     @tnt.air_percentage
