@@ -42,21 +42,24 @@ module FuelSurcharge
     def test_live
       skip if ENV["SKIP_LIVE_TESTS"]
 
-      live_colissimo = Colissimo.new
-      live_date = Date.parse live_colissimo.time_period
+      @colissimo = Colissimo.new
 
-      assert_equal Date.today.month, live_date.month
-      assert_equal Date.today.year,  live_date.year
+      time_period   = @colissimo.time_period
+      current_month = Date.today.month.to_s
 
-      assert_kind_of String,     live_colissimo.air_percentage
-      refute_empty               live_colissimo.air_percentage
-      assert_kind_of BigDecimal, live_colissimo.air_multiplier
-      assert_operator live_colissimo.air_multiplier, :>=, 1.0
+      assert_kind_of String, time_period
+      assert time_period.start_with?(current_month)
+      assert time_period.end_with?(Date.today.year.to_s)
 
-      assert_kind_of String,     live_colissimo.road_percentage
-      refute_empty               live_colissimo.road_percentage
-      assert_kind_of BigDecimal, live_colissimo.road_multiplier
-      assert_operator live_colissimo.road_multiplier, :>=, 1.0
+      assert_kind_of String,     @colissimo.air_percentage
+      refute_empty               @colissimo.air_percentage
+      assert_kind_of BigDecimal, @colissimo.air_multiplier
+      assert_operator @colissimo.air_multiplier, :>=, 1.0
+
+      assert_kind_of String,     @colissimo.road_percentage
+      refute_empty               @colissimo.road_percentage
+      assert_kind_of BigDecimal, @colissimo.road_multiplier
+      assert_operator @colissimo.road_multiplier, :>=, 1.0
     end
 
     private

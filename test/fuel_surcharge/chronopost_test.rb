@@ -38,24 +38,30 @@ module FuelSurcharge
       end
     end
 
+    FRENCH_MONTHS = %w[janvier février mars avril mai juin juillet août
+                       septembre octobre novembre décembre].freeze
+
     def test_live_values
       skip if ENV["SKIP_LIVE_TESTS"]
 
-      live_chronopost = Chronopost.new
-      live_date = Date.parse live_chronopost.time_period
+      @chronopost = Chronopost.new
 
-      assert_equal Date.today.month, live_date.month
-      assert_equal Date.today.year,  live_date.year
+      time_period   = @chronopost.time_period
+      current_month = FRENCH_MONTHS[Date.today.month - 1]
 
-      assert_kind_of String,     live_chronopost.air_percentage
-      refute_empty               live_chronopost.air_percentage
-      assert_kind_of BigDecimal, live_chronopost.air_multiplier
-      assert_operator live_chronopost.air_multiplier, :>=, 1.0
+      assert_kind_of String, time_period
+      assert time_period.downcase.start_with?(current_month)
+      assert time_period.end_with?(Date.today.year.to_s)
 
-      assert_kind_of String,     live_chronopost.road_percentage
-      refute_empty               live_chronopost.road_percentage
-      assert_kind_of BigDecimal, live_chronopost.road_multiplier
-      assert_operator live_chronopost.road_multiplier, :>=, 1.0
+      assert_kind_of String,     @chronopost.air_percentage
+      refute_empty               @chronopost.air_percentage
+      assert_kind_of BigDecimal, @chronopost.air_multiplier
+      assert_operator @chronopost.air_multiplier, :>=, 1.0
+
+      assert_kind_of String,     @chronopost.road_percentage
+      refute_empty               @chronopost.road_percentage
+      assert_kind_of BigDecimal, @chronopost.road_multiplier
+      assert_operator @chronopost.road_multiplier, :>=, 1.0
     end
 
     private
