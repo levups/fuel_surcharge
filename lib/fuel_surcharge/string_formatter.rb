@@ -6,7 +6,7 @@ module FuelSurcharge
   module StringFormatter
     refine String do
       def to_multiplier
-        number = BigDecimal tr(",", ".")
+        number = BigDecimal tr(",", ".").gsub(/[^0-9\.]/, "")
 
         (number / 100 + 1).round(4)
       end
