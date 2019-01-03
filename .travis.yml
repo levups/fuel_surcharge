@@ -1,9 +1,17 @@
 ---
+language: ruby
+
 sudo: false
+
+cache:
+  bundler: true
 
 dist: xenial
 
-language: ruby
+before_install:
+  - gem update --system
+  - gem install bundler
+  - gem install --user-install executable-hooks
 
 rvm:
   - 2.3
@@ -11,15 +19,3 @@ rvm:
   - 2.5
   - 2.6
 
-os:
-  - linux
-  - osx
-
-cache:
-  bundler: true
-
-before_install:
-  - gem update --system
-  - gem install bundler
-  - gem install --user-install executable-hooks
-  - gem regenerate_binstubs
