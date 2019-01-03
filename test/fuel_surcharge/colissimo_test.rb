@@ -45,7 +45,7 @@ module FuelSurcharge
       @colissimo = Colissimo.new
 
       time_period   = @colissimo.time_period
-      current_month = Date.today.month.to_s
+      current_month = Date.today.month.to_s.rjust(2, "0")
 
       assert_kind_of String, time_period
       assert time_period.start_with?(current_month)
