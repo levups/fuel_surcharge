@@ -1,9 +1,9 @@
-# Transporters Fuel surchage fetcher
+# A transporters fuel surcharge fetcher
 
 [![Build Status](https://travis-ci.com/levups/fuel_surcharge.svg?branch=master)](https://travis-ci.com/levups/fuel_surcharge)
 
 Retrieve current air and road rates applied to transporters shipping costs and
-convert them to multipliers we can directly use in your app to calculate
+convert them to multipliers you can directly use in your app to calculate
 precise shipping costs.
 
 ## Implemented transporters
@@ -18,12 +18,9 @@ Install the gem:
 
     $ gem install fuel_surcharge
 
-Run the gem:
+Either run the executable to fetch and display the results:
 
     $ fuel_surcharge
-
-Get the result:
-
     ---------------------------------------------------
     # Fuel surcharges for Colissimo on 12-2018
     # Fetched from https://www.colissimo.entreprise.laposte.fr/fr/system/files/imagescontent/docs/indice_gazole.xml
