@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    fuel_surcharge (0.2.0)
+    fuel_surcharge (1.0.0)
       http (~> 4.0)
 
 GEM
