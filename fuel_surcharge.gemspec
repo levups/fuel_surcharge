@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
@@ -44,4 +46,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "minitest", "~> 5.0"
   spec.add_development_dependency "minitest-stub_any_instance", "~> 1.0"
   spec.add_development_dependency "rake", "~> 12.3"
+  # We it is mature, we'll switch to the "standard" gem
+  spec.add_development_dependency "relaxed-rubocop", "~> 2.3.1"
+  spec.add_development_dependency "rubocop", "~> 0.62"
 end
