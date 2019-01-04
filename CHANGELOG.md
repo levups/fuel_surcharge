@@ -5,6 +5,10 @@
 
 **Merged pull requests:**
 
+- Add travis ci build badge [\#19](https://github.com/levups/fuel_surcharge/pull/19) ([bobmaerten](https://github.com/bobmaerten))
+- Replace cert name with more generic one [\#18](https://github.com/levups/fuel_surcharge/pull/18) ([bobmaerten](https://github.com/bobmaerten))
+- Simplify Travis CI configuration file [\#17](https://github.com/levups/fuel_surcharge/pull/17) ([czj](https://github.com/czj))
+- Bump to v1.0.0 [\#16](https://github.com/levups/fuel_surcharge/pull/16) ([czj](https://github.com/czj))
 - Include and comply to relaxed Rubocop style [\#15](https://github.com/levups/fuel_surcharge/pull/15) ([czj](https://github.com/czj))
 - Add BigDecimal compatibility for ruby 2.6 [\#13](https://github.com/levups/fuel_surcharge/pull/13) ([bobmaerten](https://github.com/bobmaerten))
 - Bump rake from 12.3.1 to 12.3.2 [\#12](https://github.com/levups/fuel_surcharge/pull/12) ([dependabot[bot]](https://github.com/apps/dependabot))
