@@ -36,8 +36,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   # Signature config
-  spec.cert_chain  = ["certs/bob_levups.pem"]
-  spec.signing_key = File.expand_path("~/.ssh/bob_levups-gem-private_key.pem") if $PROGRAM_NAME.end_with?("gem")
+  spec.cert_chain  = ["certs/levups.pem"]
+  spec.signing_key = File.expand_path("~/.ssh/levups-gem-private_key.pem") if $PROGRAM_NAME.end_with?("gem")
 
   spec.add_dependency "http", "~> 4.0"
 
