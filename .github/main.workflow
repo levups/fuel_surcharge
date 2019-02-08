@@ -1,6 +1,6 @@
 workflow "Publish a new release" {
   on = "push"
-  resolves = ["Publish the gem to Rubygems"]
+  resolves = ["Build and publish gem"]
 }
 
 action "Is current HEAD is master?" {
