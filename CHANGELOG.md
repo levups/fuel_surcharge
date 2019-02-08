@@ -1,5 +1,28 @@
 # Change Log
 
+## [v1.1.0](https://github.com/levups/fuel_surcharge/tree/v1.1.0) (2019-02-08)
+[Full Changelog](https://github.com/levups/fuel_surcharge/compare/v1.0.0...v1.1.0)
+
+**Implemented enhancements:**
+
+- Auto-publish new gem versions using Github Actions [\#25](https://github.com/levups/fuel_surcharge/issues/25)
+
+**Fixed bugs:**
+
+- Error extracting time\_period for Chronopost [\#26](https://github.com/levups/fuel_surcharge/issues/26)
+
+**Merged pull requests:**
+
+- Remove gem signature on publish [\#30](https://github.com/levups/fuel_surcharge/pull/30) ([bobmaerten](https://github.com/bobmaerten))
+- Check workflow agains git ref before running other actions [\#29](https://github.com/levups/fuel_surcharge/pull/29) ([bobmaerten](https://github.com/bobmaerten))
+- Github action auto publish [\#28](https://github.com/levups/fuel_surcharge/pull/28) ([bobmaerten](https://github.com/bobmaerten))
+- Fix chronopost time period extract [\#27](https://github.com/levups/fuel_surcharge/pull/27) ([bobmaerten](https://github.com/bobmaerten))
+- Bump rubocop from 0.63.0 to 0.63.1 [\#24](https://github.com/levups/fuel_surcharge/pull/24) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump http from 4.0.2 to 4.0.3 [\#23](https://github.com/levups/fuel_surcharge/pull/23) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump rubocop from 0.62.0 to 0.63.0 [\#22](https://github.com/levups/fuel_surcharge/pull/22) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump http from 4.0.1 to 4.0.2 [\#21](https://github.com/levups/fuel_surcharge/pull/21) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump http from 4.0.0 to 4.0.1 [\#20](https://github.com/levups/fuel_surcharge/pull/20) ([dependabot[bot]](https://github.com/apps/dependabot))
+
 ## [v1.0.0](https://github.com/levups/fuel_surcharge/tree/v1.0.0) (2019-01-04)
 [Full Changelog](https://github.com/levups/fuel_surcharge/compare/v0.2.0...v1.0.0)
 
