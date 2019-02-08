@@ -10,4 +10,5 @@ if [ -n "$RUBYGEMS_AUTH_TOKEN" ]; then
   chmod 0600 "$GEM_CREDENTIALS"
 fi
 
-sh -c "rake $*"
+bundle install
+rake $*
