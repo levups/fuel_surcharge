@@ -35,10 +35,6 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  # Signature config
-  spec.cert_chain  = ["certs/levups.pem"]
-  spec.signing_key = File.expand_path("~/.ssh/levups-gem-private_key.pem") if $PROGRAM_NAME.end_with?("gem")
-
   spec.add_dependency "http", "~> 4.0"
 
   spec.add_development_dependency "bundler", ">= 1.17"
