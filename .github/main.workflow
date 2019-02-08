@@ -14,14 +14,8 @@ action "Having a new version to release?" {
   args = "should_we_release_a_new_version"
 }
 
-action "Run the test suite" {
-  needs = "Having a new version to release?"
-  uses = "./.github/actions/gem-publish"
-  args = "test"
-}
-
 action "Build gem" {
-  needs = "Run the test suite"
+  needs = "Having a new version to release?"
   uses = "./.github/actions/gem-publish"
   args = "build"
 }
