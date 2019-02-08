@@ -3,7 +3,13 @@ workflow "Publish a new release" {
   resolves = ["Publish the gem to Rubygems"]
 }
 
+action "Is current HEAD is master?" {
+  uses = "actions/bin/filter@master"
+  args = "tag master"
+}
+
 action "Having a new version to release?" {
+  needs = "Is current HEAD is master?"
   uses = "./.github/actions/gem-publish"
   args = "should_we_release_a_new_version"
 }
