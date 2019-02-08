@@ -1,27 +1,27 @@
 workflow "Publish a new release" {
   on = "push"
-  resolves = ["Publish"]
+  resolves = ["Publish the gem to Rubygems"]
 }
 
-action "Check" {
+action "Having a new version to release?" {
   uses = "./.github/actions/gem-publish"
   args = "should_we_release_a_new_version"
 }
 
-action "Test" {
-  needs = "Check"
+action "Run the test suite" {
+  needs = "Having a new version to release?"
   uses = "./.github/actions/gem-publish"
   args = "test"
 }
 
-action "Build" {
-  needs = "Test"
+action "Build gem" {
+  needs = "Run the test suite"
   uses = "./.github/actions/gem-publish"
   args = "build"
 }
 
-action "Publish" {
-  needs = "Build"
+action "Publish the gem to Rubygems" {
+  needs = "Build gem"
   uses = "./.github/actions/gem-publish"
   args = "release"
   secrets = ["RUBYGEMS_AUTH_TOKEN"]
