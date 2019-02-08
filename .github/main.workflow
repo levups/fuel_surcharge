@@ -5,7 +5,7 @@ workflow "Publish a new release" {
 
 action "Is current HEAD is master?" {
   uses = "actions/bin/filter@0ac6d44"
-  args = "tag master"
+  args = "ref refs/heads/master"
 }
 
 action "Having a new version to release?" {
