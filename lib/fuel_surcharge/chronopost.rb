@@ -28,11 +28,11 @@ module FuelSurcharge
     private
 
     def source_html
-      HTTPRequest.new(url)
-                 .response
-                 .to_s
-                 .delete("\n")
-                 .gsub(/\s+/, " ")
+      @source_html ||= HTTPRequest.new(url)
+                                  .response
+                                  .to_s
+                                  .delete("\n")
+                                  .gsub(/\s+/, " ")
     end
 
     def tables
