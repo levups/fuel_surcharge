@@ -11,4 +11,4 @@ if [ -n "$RUBYGEMS_AUTH_TOKEN" ]; then
 fi
 
 bundle install
-rake $*
+rake "$*"

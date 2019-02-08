@@ -1,4 +1,4 @@
-FROM ruby:2.6-alpine
+FROM ruby:2.6
 
 LABEL version="1.0.0"
 LABEL repository="https://github.com/levups/fuel_surcharge/.github/actions/gem-publish"
@@ -10,9 +10,10 @@ LABEL com.github.actions.description="Wraps the rake CLI to trigger common tasks
 LABEL com.github.actions.icon="package"
 LABEL com.github.actions.color="red"
 
-RUN gem install rake
+RUN gem install rake bundler
 
 COPY LICENSE README.md /
 COPY "entrypoint.sh" "/entrypoint.sh"
 
 ENTRYPOINT ["/entrypoint.sh"]
+CMD ["help"]
