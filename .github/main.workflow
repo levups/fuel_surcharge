@@ -23,6 +23,6 @@ action "Build gem" {
 action "Publish the gem to Rubygems" {
   needs = "Build gem"
   uses = "./.github/actions/gem-publish"
-  args = "release"
+  args = "release:rubygem_push"
   secrets = ["RUBYGEMS_AUTH_TOKEN"]
 }
