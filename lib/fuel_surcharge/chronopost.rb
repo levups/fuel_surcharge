@@ -28,11 +28,11 @@ module FuelSurcharge
     private
 
     def source_html
-      HTTPRequest.new(url)
-                 .response
-                 .to_s
-                 .delete("\n")
-                 .gsub(/\s+/, " ")
+      @source_html ||= HTTPRequest.new(url)
+                                  .response
+                                  .to_s
+                                  .delete("\n")
+                                  .gsub(/\s+/, " ")
     end
 
     def tables
@@ -56,7 +56,8 @@ module FuelSurcharge
     def period
       return unless head
 
-      head.match(%r{<p>(?<content>.*)</p>})
+      text = head.split(%r{</th>\s*<th}).last
+      text.match(%r{<p>(?<content>.*)</p>})
     end
 
     def body
@@ -69,8 +70,8 @@ module FuelSurcharge
       return unless period
       return unless body
 
-      @time_period = period[:content].sub("<br />", "")
-      @road_percentage, @air_percentage = body.split("</tr><tr>").map do |line|
+      @time_period = period[:content].sub(%r{<br\s*/>}, "")
+      @road_percentage, @air_percentage = body.split(%r{</tr>\s*<tr}).map do |line|
         line.to_s.rpartition("</td>").first.rpartition(">").last
       end
     end
