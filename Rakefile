@@ -38,6 +38,7 @@ GitHubChangelogGenerator::RakeTask.new :changelog do |config|
   config.project              = "fuel_surcharge"
   config.future_release       = next_release if next_release > latest_release
   config.add_issues_wo_labels = false
+  config.exclude_labels       = "release"
 end
 
 task default: :test
