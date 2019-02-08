@@ -24,7 +24,7 @@ task :should_we_release_a_new_version do
 
   if FuelSurcharge::VERSION == gem_release
     puts "No release required"
-    exit 1
+    exit 78
   else
     puts "Let's release the v#{FuelSurcharge::VERSION}!"
   end

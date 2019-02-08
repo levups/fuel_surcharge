@@ -39,7 +39,7 @@ action "Publish" {
 
 ### Secrets
 
-* `RUBYGEMS_AUTH_TOKEN` - **Required**. The token to use for authentication with the rubygems repository
+  * `RUBYGEMS_AUTH_TOKEN` - **Required**. The token to use for authentication with the rubygems repository
 
 ## License
 
