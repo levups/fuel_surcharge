@@ -1,6 +1,6 @@
 workflow "Publish a new release" {
   on = "push"
-  resolves = ["Build and publish gem"]
+  resolves = ["Publish gem to rubygems.org"]
 }
 
 action "Is current HEAD is master?" {
@@ -8,16 +8,15 @@ action "Is current HEAD is master?" {
   args = "ref refs/heads/master"
 }
 
-action "Having a new version to release?" {
+action "Having a new version to build?" {
   needs = "Is current HEAD is master?"
-  uses = "./.github/actions/gem-publish"
-  args = "should_we_release_a_new_version"
+  uses = "./.github/actions/build-gem"
 }
 
-action "Build and publish gem" {
-  needs = "Having a new version to release?"
-  uses = "./.github/actions/gem-publish"
-  args = "build release:rubygem_push"
+action "Publish gem to rubygems.org" {
+  needs = "Having a new version to build?"
+  uses = "scarhand/actions-ruby@947af2c"
+  args = "push pkg/*.gem"
   secrets = ["RUBYGEMS_AUTH_TOKEN"]
 }
 
