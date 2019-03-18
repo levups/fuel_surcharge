@@ -63,12 +63,11 @@ module FuelSurcharge
     end
 
     def source_html
-      @source_html ||=
-        HTTPRequest.new(url)
-                   .response
-                   .to_s
-                   .delete("\n")
-                   .gsub(/\s+/, " ")
+      @source_html ||= HTTPRequest.new(url)
+        .response
+        .to_s
+        .delete("\n")
+        .gsub(/\s+/, " ")
     end
   end
 end

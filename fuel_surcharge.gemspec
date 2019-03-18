@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
     "bug_tracker_uri" => "https://github.com/levups/fuel_surcharge/issues",
     "changelog_uri" => "https://github.com/levups/fuel_surcharge/blob/master/CHANGELOG.md",
     "homepage_uri" => "https://rubygems.org/gems/fuel_surcharge",
-    "source_code_uri" => "https://github.com/levups/fuel_surcharge"
+    "source_code_uri" => "https://github.com/levups/fuel_surcharge",
   }
 
   # Specify which files should be added to the gem when it is released.
@@ -42,7 +42,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "minitest", "~> 5.0"
   spec.add_development_dependency "minitest-stub_any_instance", "~> 1.0"
   spec.add_development_dependency "rake", "~> 12.3"
-  # We it is mature, we'll switch to the "standard" gem
-  spec.add_development_dependency "relaxed-rubocop", "~> 2.3.1"
-  spec.add_development_dependency "rubocop", "~> 0.62"
+  spec.add_development_dependency "standard", "~> 0.0.36"
 end

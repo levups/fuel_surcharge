@@ -2,9 +2,10 @@
 
 require "bundler/gem_tasks"
 require "github_changelog_generator/task"
-require "rake/testtask"
 require "http"
 require "json"
+require "rake/testtask"
+require "standard/rake"
 
 Rake::TestTask.new(:test) do |t|
   t.libs << "test"
