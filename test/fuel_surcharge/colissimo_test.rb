@@ -46,10 +46,19 @@ module FuelSurcharge
 
       time_period   = @colissimo.time_period
       current_month = Date.today.month.to_s.rjust(2, "0")
+      next_month    = Date.today.next_month.month.to_s.rjust(2, "0")
+      current_year  = Date.today.year.to_s.rjust(2, "0")
+      next_year     = Date.today.next_year.year.to_s
 
       assert_kind_of String, time_period
-      assert time_period.start_with?(current_month)
-      assert time_period.end_with?(Date.today.year.to_s)
+
+      # Sometimes Colissimo publish upcoming month values
+      assert time_period.start_with?(current_month, next_month)
+      if current_month == "12"
+        assert time_period.end_with?(current_year, next_year)
+      else
+        assert time_period.end_with?(current_year)
+      end
 
       assert_kind_of String,     @colissimo.air_percentage
       refute_empty               @colissimo.air_percentage
