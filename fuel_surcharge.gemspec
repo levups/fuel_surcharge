@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
     "bug_tracker_uri" => "https://github.com/levups/fuel_surcharge/issues",
     "changelog_uri" => "https://github.com/levups/fuel_surcharge/blob/master/CHANGELOG.md",
     "homepage_uri" => "https://rubygems.org/gems/fuel_surcharge",
-    "source_code_uri" => "https://github.com/levups/fuel_surcharge"
+    "source_code_uri" => "https://github.com/levups/fuel_surcharge",
   }
 
   # Specify which files should be added to the gem when it is released.
