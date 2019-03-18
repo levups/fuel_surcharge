@@ -35,7 +35,7 @@ module FuelSurcharge
     private
 
     def periods
-      @period ||= HTMLScanner.new(thead).all("th").map(&:strip_html).map(&:squish)
+      @periods ||= HTMLScanner.new(thead).all("th").map(&:strip_html).map(&:squish)
     end
 
     def air_content
@@ -65,10 +65,10 @@ module FuelSurcharge
     def source_html
       @source_html ||=
         HTTPRequest.new(url)
-          .response
-          .to_s
-          .delete("\n")
-          .gsub(/\s+/, " ")
+                   .response
+                   .to_s
+                   .delete("\n")
+                   .gsub(/\s+/, " ")
     end
   end
 end

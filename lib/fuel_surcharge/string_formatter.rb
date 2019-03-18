@@ -13,7 +13,8 @@ module FuelSurcharge
 
       # https://gist.github.com/awesome/225181
       def strip_html
-        gsub(/<\/?[^>]*>/, "")
+        gsub!(%r{</?[^>]*>}, "")
+        self
       end
 
       # From ActiveSupport

@@ -17,7 +17,8 @@ module FuelSurcharge
 
       current_pos = @scanner.pos
       @scanner.skip_until(/#{opening}/)
-      @scanner.pos = current_pos if (chunk = @scanner.scan_until(/#{closing}/).to_s).empty?
+      chunk = @scanner.scan_until(/#{closing}/).to_s
+      @scanner.pos = current_pos if chunk.empty?
       chunk[0...chunk.size - closing.size].strip
     end
 
@@ -25,7 +26,7 @@ module FuelSurcharge
       chunks = []
       return chunks if @scanner.eos?
 
-      while chunk = upcoming(tag)
+      while (chunk = upcoming(tag))
         chunks << chunk
       end
       chunks
