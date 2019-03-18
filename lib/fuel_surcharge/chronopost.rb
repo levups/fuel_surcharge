@@ -2,16 +2,15 @@
 
 require "fuel_surcharge/http_request"
 require "fuel_surcharge/string_formatter"
+require "fuel_surcharge/html_scanner"
 
 module FuelSurcharge
   class Chronopost
     using StringFormatter
 
-    def initialize
-      extract_content
+    def time_period
+      periods.last
     end
-
-    attr_reader :time_period, :air_percentage, :road_percentage
 
     def air_multiplier
       air_percentage&.to_multiplier
@@ -21,59 +20,55 @@ module FuelSurcharge
       road_percentage&.to_multiplier
     end
 
+    def air_percentage
+      @air_percentage ||= HTMLScanner.new(air_content).all("td")&.last
+    end
+
+    def road_percentage
+      @road_percentage ||= HTMLScanner.new(road_content).all("td")&.last
+    end
+
     def url
       "https://www.chronopost.fr/fr/surcharge-carburant"
     end
 
     private
 
-    def source_html
-      @source_html ||= HTTPRequest.new(url)
-                                  .response
-                                  .to_s
-                                  .delete("\n")
-                                  .gsub(/\s+/, " ")
+    def periods
+      @period ||= HTMLScanner.new(thead).all("th").map(&:strip_html).map(&:squish)
     end
 
-    def tables
-      return unless source_html
+    def air_content
+      rows.select { |e| e.include?("Aérien") }
+    end
 
-      source_html.split("<table ")[1]
+    def road_content
+      rows.select { |e| e.include?("Routier") }
+    end
+
+    def rows
+      @rows ||= HTMLScanner.new(tbody).all("tr")
+    end
+
+    def thead
+      @thead ||= HTMLScanner.new(table).upcoming("thead")
+    end
+
+    def tbody
+      @tbody ||= HTMLScanner.new(table).upcoming("tbody")
     end
 
     def table
-      return unless tables
-
-      tables.split("<h2>Principe</h2>").first
+      @table ||= HTMLScanner.new(source_html).upcoming("table")
     end
 
-    def head
-      return unless table
-
-      table.scan(%r{<thead>.*</thead>}).first
-    end
-
-    def period
-      return unless head
-
-      text = head.split(%r{</th>\s*<th}).last
-      text.match(%r{<p>(?<content>.*)</p>})
-    end
-
-    def body
-      return unless table
-
-      table.scan(%r{<tbody><tr>.*</tr></tbody>}).first
-    end
-
-    def extract_content
-      return unless period
-      return unless body
-
-      @time_period = period[:content].sub(%r{<br\s*/>}, "")
-      @road_percentage, @air_percentage = body.split(%r{</tr>\s*<tr}).map do |line|
-        line.to_s.rpartition("</td>").first.rpartition(">").last
-      end
+    def source_html
+      @source_html ||=
+        HTTPRequest.new(url)
+          .response
+          .to_s
+          .delete("\n")
+          .gsub(/\s+/, " ")
     end
   end
 end
