@@ -10,7 +10,6 @@ before_install:
   - gem install --user-install executable-hooks
 
 rvm:
-  - 2.3
   - 2.4
   - 2.5
   - 2.6
