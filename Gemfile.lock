@@ -55,7 +55,6 @@ GEM
     public_suffix (3.0.3)
     rainbow (3.0.0)
     rake (12.3.2)
-    relaxed-rubocop (2.3.1)
     retriable (2.1.0)
     rubocop (0.66.0)
       jaro_winkler (~> 1.5.1)
@@ -69,6 +68,8 @@ GEM
     sawyer (0.8.1)
       addressable (>= 2.3.5, < 2.6)
       faraday (~> 0.8, < 1.0)
+    standard (0.0.36)
+      rubocop (>= 0.63)
     thread_safe (0.3.6)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
@@ -87,8 +88,7 @@ DEPENDENCIES
   minitest (~> 5.0)
   minitest-stub_any_instance (~> 1.0)
   rake (~> 12.3)
-  relaxed-rubocop (~> 2.3.1)
-  rubocop (~> 0.62)
+  standard (~> 0.0.36)
 
 BUNDLED WITH
    2.0.1
