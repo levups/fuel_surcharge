@@ -67,7 +67,9 @@ module FuelSurcharge
     private
 
     def nominal_case
-      response = File.read("test/fixtures/chronopost_sample_response.html")
+      file = File.open("test/fixtures/chronopost_sample_response.html", "r:UTF-8")
+      response = file.read
+      file.close
       HTTPRequest.stub_any_instance :response, response do
         @chronopost = Chronopost.new
         yield
