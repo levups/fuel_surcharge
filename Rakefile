@@ -5,7 +5,6 @@ require "github_changelog_generator/task"
 require "http"
 require "json"
 require "rake/testtask"
-require "standard/rake"
 
 Rake::TestTask.new(:test) do |t|
   t.libs << "test"
