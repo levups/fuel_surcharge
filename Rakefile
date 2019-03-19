@@ -32,7 +32,7 @@ task :should_we_release_a_new_version do
 end
 
 GitHubChangelogGenerator::RakeTask.new :changelog do |config|
-  latest_release = `git tag --sort=taggerdate | tail -n 1`.strip
+  latest_release = `git tag --sort=taggerdate | head -n 1`.strip
   next_release   = "v#{FuelSurcharge::VERSION}"
 
   config.user                 = "levups"
