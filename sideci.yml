@@ -1,6 +1,10 @@
+---
 linter:
   rubocop:
     # Inherit from a given version of standard.rb
     # https://help.sider.review/tools/ruby/rubocop#gems
     gems:
-      - "standard"
+      - name: 'rubocop'
+        version: '0.67.2'
+      - name: 'standard'
+        version: '0.0.37'
