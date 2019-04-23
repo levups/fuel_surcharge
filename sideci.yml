@@ -7,4 +7,4 @@ linter:
       - name: 'rubocop'
         version: '0.67.2'
       - name: 'standard'
-        version: '0.0.37'
+        version: '0.0.39'
