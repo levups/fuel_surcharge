@@ -7,27 +7,22 @@ module FuelSurcharge
   class TNT
     using StringFormatter
 
-    def initialize
-      latest_road_values_position = 0
-      latest_air_values_position = extracted_values.size.div(2)
-      @road_values = extracted_values[latest_road_values_position]
-      @air_values  = extracted_values[latest_air_values_position]
-    end
+    attr_accessor :current_month
 
-    def url
-      "https://www.tnt.com/express/fr_fr/site/home/comment-expedier/facturation/surcharges/baremes-et-historiques.html"
+    def initialize(current_month: Date.today.month)
+      @current_month = current_month
     end
 
     def time_period
-      @road_values&.first&.to_s
+      road_value&.first&.to_s
     end
 
     def road_percentage
-      @road_values&.last&.to_s
+      road_value&.last&.to_s
     end
 
     def air_percentage
-      @air_values&.last&.to_s
+      air_value&.last&.to_s
     end
 
     def road_multiplier
@@ -41,6 +36,7 @@ module FuelSurcharge
     private
 
     VALUES_REGEX = /Surcharge d[e\' ]+(.*) : (.*%)</.freeze
+    # Sample obtained structure :
     # [
     #   [" novembre 2018 ",  "12,10%"],
     #   ["octobre 2018 ",    "11,95%"],
@@ -50,11 +46,43 @@ module FuelSurcharge
     #   [" septembre 2018 ", "17,50%"]
     # ]
     def extracted_values
-      @extracted_values ||= response.to_s.scan(VALUES_REGEX)
+      response.to_s.scan(VALUES_REGEX)
     end
 
+    def current_month_values
+      extracted_values.select { |month, value| month.include? current_month_name }
+    end
+
+    def air_value
+      current_month_values.last
+    end
+
+    def road_value
+      current_month_values.first
+    end
+
+    URL = "https://www.tnt.com/express/fr_fr/site/home/comment-expedier/facturation/surcharges/baremes-et-historiques.html"
     def response
-      @response ||= HTTPRequest.new(url).response
+      @response ||= HTTPRequest.new(URL).response
+    end
+
+    FRENCH_MONTHS_NAMES = %w[
+      janvier
+      février
+      mars
+      avril
+      mai
+      juin
+      juillet
+      août
+      septembre
+      octobre
+      novembre
+      décembre
+    ].freeze
+
+    def current_month_name
+      FRENCH_MONTHS_NAMES[current_month - 1]
     end
   end
 end
