@@ -30,15 +30,4 @@ task :should_we_release_a_new_version do
   end
 end
 
-GitHubChangelogGenerator::RakeTask.new :changelog do |config|
-  latest_release = `git tag --sort=taggerdate | head -n 1`.strip
-  next_release   = "v#{FuelSurcharge::VERSION}"
-
-  config.user                 = "levups"
-  config.project              = "fuel_surcharge"
-  config.future_release       = next_release if next_release > latest_release
-  config.add_issues_wo_labels = false
-  config.exclude_labels       = "release"
-end
-
 task default: :test
