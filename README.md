@@ -57,3 +57,12 @@ Or use it in your app:
     tnt = FuelSurcharge::TNT.new
     tnt.road_multiplier            # 0.1121e1
     tnt.air_multiplier             # 0.1185e1
+
+## Releasing a new version of this gem
+
+- bump version in `lib/fuel_surcharge/version.rb` and `.github_changelog_generator`
+- run `git fetch --all --prune --tag` to ensure having latest tags
+- update CHANGELOG.md file by running `github_changelog_generator`
+- commit, push, merge PR for this release
+- draft and validate a new release on https://github.com/levups/fuel_surcharge/releases/new
+- GitHub action publishes new relase on rubygems automatically
