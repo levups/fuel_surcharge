@@ -6,7 +6,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "fuel_surcharge/version"
 
 Gem::Specification.new do |spec|
-  spec.required_ruby_version = "~> 2.3"
+  spec.required_ruby_version = "~> 2.5"
 
   spec.name    = "fuel_surcharge"
   spec.version = FuelSurcharge::VERSION
