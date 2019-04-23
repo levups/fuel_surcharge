@@ -38,16 +38,13 @@ module FuelSurcharge
       end
     end
 
-    FRENCH_MONTHS = %w[janvier février mars avril mai juin juillet août
-                       septembre octobre novembre décembre].freeze
-
     def test_live_values
       skip if ENV["SKIP_LIVE_TESTS"]
 
       @tnt = TNT.new
 
       time_period   = @tnt.time_period
-      current_month = FRENCH_MONTHS[Date.today.month - 1]
+      current_month = FuelSurcharge::TNT::FRENCH_MONTHS_NAMES[Date.today.month - 1]
 
       assert_kind_of String, time_period
       assert time_period.downcase.start_with?(current_month)
@@ -69,14 +66,14 @@ module FuelSurcharge
     def nominal_case
       sample_response = File.read("test/fixtures/tnt_sample_response.html")
       HTTPRequest.stub_any_instance :response, sample_response do
-        @tnt = TNT.new
+        @tnt = TNT.new(current_month: 11)
         yield
       end
     end
 
     def failing_case
       HTTPRequest.stub_any_instance :response, "" do
-        @tnt = TNT.new
+        @tnt = TNT.new(current_month: 11)
         yield
       end
     end
