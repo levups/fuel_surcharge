@@ -1,6 +1,6 @@
 # A transporters fuel surcharge fetcher
 
-[![Build Status](https://travis-ci.com/levups/fuel_surcharge.svg?branch=master)](https://travis-ci.com/levups/fuel_surcharge)
+[![CircleCI](https://circleci.com/gh/levups/fuel_surcharge/tree/master.svg?style=svg)](https://circleci.com/gh/levups/fuel_surcharge/tree/master)
 
 Retrieve current air and road rates applied to transporters shipping costs and
 convert them to multipliers you can directly use in your app to calculate
