@@ -1,6 +1,24 @@
 # Change Log
 
+## [1.2.0](https://github.com/levups/fuel_surcharge/tree/1.2.0) (2019-04-23)
+
+[Full Changelog](https://github.com/levups/fuel_surcharge/compare/v1.1.0...1.2.0)
+
+**Fixed bugs:**
+
+- Error in gem push workflow action [\#32](https://github.com/levups/fuel_surcharge/issues/32)
+
+**Merged pull requests:**
+
+- Correct github workflow for gem push [\#33](https://github.com/levups/fuel_surcharge/pull/33) ([bobmaerten](https://github.com/bobmaerten))
+- Fix versions for rubocop and standard gem in Sider [\#44](https://github.com/levups/fuel_surcharge/pull/44) ([bobmaerten](https://github.com/bobmaerten))
+- Move out of Travis CI into Circle CI [\#47](https://github.com/levups/fuel_surcharge/pull/47) ([czj](https://github.com/czj))
+- Optimize chronopost scrapping [\#42](https://github.com/levups/fuel_surcharge/pull/42) ([bobmaerten](https://github.com/bobmaerten))
+- Replace Rubocop with standard.rb [\#41](https://github.com/levups/fuel_surcharge/pull/41) ([bobmaerten](https://github.com/bobmaerten))
+- Rewrite TNT class to stabilize it at any time of the month [\#48](https://github.com/levups/fuel_surcharge/pull/48) ([czj](https://github.com/czj))
+
 ## [v1.1.0](https://github.com/levups/fuel_surcharge/tree/v1.1.0) (2019-02-08)
+
 [Full Changelog](https://github.com/levups/fuel_surcharge/compare/v1.0.0...v1.1.0)
 
 **Implemented enhancements:**
@@ -13,17 +31,14 @@
 
 **Merged pull requests:**
 
+- Release v1.1.0 [\#31](https://github.com/levups/fuel_surcharge/pull/31) ([bobmaerten](https://github.com/bobmaerten))
 - Remove gem signature on publish [\#30](https://github.com/levups/fuel_surcharge/pull/30) ([bobmaerten](https://github.com/bobmaerten))
 - Check workflow agains git ref before running other actions [\#29](https://github.com/levups/fuel_surcharge/pull/29) ([bobmaerten](https://github.com/bobmaerten))
 - Github action auto publish [\#28](https://github.com/levups/fuel_surcharge/pull/28) ([bobmaerten](https://github.com/bobmaerten))
 - Fix chronopost time period extract [\#27](https://github.com/levups/fuel_surcharge/pull/27) ([bobmaerten](https://github.com/bobmaerten))
-- Bump rubocop from 0.63.0 to 0.63.1 [\#24](https://github.com/levups/fuel_surcharge/pull/24) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump http from 4.0.2 to 4.0.3 [\#23](https://github.com/levups/fuel_surcharge/pull/23) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump rubocop from 0.62.0 to 0.63.0 [\#22](https://github.com/levups/fuel_surcharge/pull/22) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump http from 4.0.1 to 4.0.2 [\#21](https://github.com/levups/fuel_surcharge/pull/21) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Bump http from 4.0.0 to 4.0.1 [\#20](https://github.com/levups/fuel_surcharge/pull/20) ([dependabot[bot]](https://github.com/apps/dependabot))
 
 ## [v1.0.0](https://github.com/levups/fuel_surcharge/tree/v1.0.0) (2019-01-04)
+
 [Full Changelog](https://github.com/levups/fuel_surcharge/compare/v0.2.0...v1.0.0)
 
 **Merged pull requests:**
@@ -34,12 +49,11 @@
 - Bump to v1.0.0 [\#16](https://github.com/levups/fuel_surcharge/pull/16) ([czj](https://github.com/czj))
 - Include and comply to relaxed Rubocop style [\#15](https://github.com/levups/fuel_surcharge/pull/15) ([czj](https://github.com/czj))
 - Add BigDecimal compatibility for ruby 2.6 [\#13](https://github.com/levups/fuel_surcharge/pull/13) ([bobmaerten](https://github.com/bobmaerten))
-- Bump rake from 12.3.1 to 12.3.2 [\#12](https://github.com/levups/fuel_surcharge/pull/12) ([dependabot[bot]](https://github.com/apps/dependabot))
-- Update rake requirement from ~\> 10.0 to ~\> 12.3 [\#11](https://github.com/levups/fuel_surcharge/pull/11) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Fix and unify time period tests [\#9](https://github.com/levups/fuel_surcharge/pull/9) ([bobmaerten](https://github.com/bobmaerten))
 - Fix fuel surcharge binary [\#8](https://github.com/levups/fuel_surcharge/pull/8) ([bobmaerten](https://github.com/bobmaerten))
 
 ## [v0.2.0](https://github.com/levups/fuel_surcharge/tree/v0.2.0) (2018-11-28)
+
 [Full Changelog](https://github.com/levups/fuel_surcharge/compare/v0.1.0...v0.2.0)
 
 **Implemented enhancements:**
@@ -57,6 +71,7 @@
 - Upgrade Travis CI dist to Xenial [\#2](https://github.com/levups/fuel_surcharge/pull/2) ([czj](https://github.com/czj))
 
 ## [v0.1.0](https://github.com/levups/fuel_surcharge/tree/v0.1.0) (2018-11-25)
+
 **Merged pull requests:**
 
 - Prepare for initial release [\#1](https://github.com/levups/fuel_surcharge/pull/1) ([bobmaerten](https://github.com/bobmaerten))
