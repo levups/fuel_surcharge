@@ -22,15 +22,15 @@ module FuelSurcharge
 
     def air_percentage
       @air_percentage ||= begin
-        content = HTMLScanner.new(air_content).all("td")
-        content[1]
+        table_row = HTMLScanner.new(air_content).all("td")
+        table_row[1]
       end
     end
 
     def road_percentage
       @road_percentage ||= begin
-       content = HTMLScanner.new(road_content).all("td")
-       content[1]
+       table_row = HTMLScanner.new(road_content).all("td")
+       table_row[1]
      end
     end
 
@@ -45,7 +45,7 @@ module FuelSurcharge
     # with `to_s` method ensures those strings are using the StringFormatter
     # refinement.
     def periods
-      @periods ||= HTMLScanner.new(thead).all("th").map(&:to_s).map(&:strip_html).map(&:squish)
+      @periods ||= HTMLScanner.new(thead).all("th").map { |e| e.to_s.strip_html.squish }
     end
 
     def air_content
