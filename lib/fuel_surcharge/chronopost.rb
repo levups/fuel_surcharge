@@ -40,7 +40,7 @@ module FuelSurcharge
 
     private
 
-    # In JRuby HTMLScanner is somehow instancied before this class and all String
+    # In JRuby HTMLScanner is somehow loaded before this class and all String
     # returned do not use StringFormatter refinement. Mapping HTMLScanner output
     # with `to_s` method ensures those strings are using the StringFormatter
     # refinement.
