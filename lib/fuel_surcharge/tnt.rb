@@ -7,12 +7,6 @@ module FuelSurcharge
   class TNT
     using StringFormatter
 
-    attr_accessor :current_month
-
-    def initialize(current_month: Date.today.month)
-      @current_month = current_month
-    end
-
     def time_period
       road_value&.first&.to_s
     end
@@ -33,37 +27,25 @@ module FuelSurcharge
       air_percentage&.to_multiplier
     end
 
+    def url
+      "https://www.tnt.com/express/fr_fr/site/comment/facturation/comprendre-votre-facture/baremes-et-historiques.html"
+    end
+
     private
 
-    VALUES_REGEX = /Surcharge d[e\' ]+(.*) : (.*%)</.freeze
-    # Sample obtained structure :
-    # [
-    #   [" novembre 2018 ",  "12,10%"],
-    #   ["octobre 2018 ",    "11,95%"],
-    #   [" septembre 2018 ", "11,95%"],
-    #   [" novembre 2018 ",  "18,50%"],
-    #   ["octobre 2018 ",    "17,50%"],
-    #   [" septembre 2018 ", "17,50%"]
-    # ]
-    def extracted_values
-      response.to_s.scan(VALUES_REGEX)
-    end
-
-    def current_month_values
-      extracted_values.select { |month, value| month.include? current_month_name }
-    end
+    ROAD_VALUES_REGEX = /Surcharge d[e\' ]+ (\w+ \d{4}) : (.+%)</.freeze
+    AIR_VALUES_REGEX  = /Surcharge du \d+ au \d+ (\w+ \d{4}) : (.*%)</.freeze
 
     def air_value
-      current_month_values.last
+      response.to_s.scan(AIR_VALUES_REGEX).first
     end
 
     def road_value
-      current_month_values.first
+      response.to_s.scan(ROAD_VALUES_REGEX).first
     end
 
-    URL = "https://www.tnt.com/express/fr_fr/site/home/comment-expedier/facturation/surcharges/baremes-et-historiques.html"
     def response
-      @response ||= HTTPRequest.new(URL).response
+      @response ||= HTTPRequest.new(url).response
     end
 
     FRENCH_MONTHS_NAMES = %w[

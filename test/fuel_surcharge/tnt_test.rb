@@ -6,7 +6,7 @@ module FuelSurcharge
   class TNTTest < Minitest::Test
     def test_time_period
       nominal_case do
-        assert_equal "novembre 2018", @tnt.time_period
+        assert_equal "juillet 2019", @tnt.time_period
       end
 
       failing_case do
@@ -16,8 +16,8 @@ module FuelSurcharge
 
     def test_air
       nominal_case do
-        assert_equal "18,50%", @tnt.air_percentage
-        assert_equal 1.185,    @tnt.air_multiplier
+        assert_equal "17,50%", @tnt.air_percentage
+        assert_equal 1.175,    @tnt.air_multiplier
       end
 
       failing_case do
@@ -66,14 +66,14 @@ module FuelSurcharge
     def nominal_case
       sample_response = File.read("test/fixtures/tnt_sample_response.html")
       HTTPRequest.stub_any_instance :response, sample_response do
-        @tnt = TNT.new(current_month: 11)
+        @tnt = TNT.new
         yield
       end
     end
 
     def failing_case
       HTTPRequest.stub_any_instance :response, "" do
-        @tnt = TNT.new(current_month: 11)
+        @tnt = TNT.new
         yield
       end
     end

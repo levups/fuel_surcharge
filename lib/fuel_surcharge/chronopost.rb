@@ -9,7 +9,7 @@ module FuelSurcharge
     using StringFormatter
 
     def time_period
-      periods.last
+      periods[1]
     end
 
     def air_multiplier
@@ -21,11 +21,17 @@ module FuelSurcharge
     end
 
     def air_percentage
-      @air_percentage ||= HTMLScanner.new(air_content).all("td")&.last
+      @air_percentage ||= begin
+        table_row = HTMLScanner.new(air_content).all("td")
+        table_row[1]
+      end
     end
 
     def road_percentage
-      @road_percentage ||= HTMLScanner.new(road_content).all("td")&.last
+      @road_percentage ||= begin
+       table_row = HTMLScanner.new(road_content).all("td")
+       table_row[1]
+     end
     end
 
     def url
@@ -34,8 +40,12 @@ module FuelSurcharge
 
     private
 
+    # In JRuby HTMLScanner is somehow loaded before this class and all String
+    # returned do not use StringFormatter refinement. Mapping HTMLScanner output
+    # with `to_s` method ensures those strings are using the StringFormatter
+    # refinement.
     def periods
-      @periods ||= HTMLScanner.new(thead).all("th").map(&:strip_html).map(&:squish)
+      @periods ||= HTMLScanner.new(thead).all("th").map { |e| e.to_s.strip_html.squish }
     end
 
     def air_content
