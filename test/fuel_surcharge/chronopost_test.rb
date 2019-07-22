@@ -6,7 +6,7 @@ module FuelSurcharge
   class ChronopostTest < Minitest::Test
     def test_time_period
       nominal_case do
-        assert_equal "Novembre 2018", @chronopost.time_period
+        assert_equal "Juillet 2019", @chronopost.time_period
       end
 
       failing_case do
