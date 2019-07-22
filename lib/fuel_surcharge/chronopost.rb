@@ -9,7 +9,7 @@ module FuelSurcharge
     using StringFormatter
 
     def time_period
-      periods&.send(:[], 1)
+      periods[1]
     end
 
     def air_multiplier
@@ -21,11 +21,17 @@ module FuelSurcharge
     end
 
     def air_percentage
-      @air_percentage ||= HTMLScanner.new(air_content).all("td")&.send(:[], 1)
+      @air_percentage ||= begin
+         content = HTMLScanner.new(air_content).all("td")
+         content[1]
+      end
     end
 
     def road_percentage
-      @road_percentage ||= HTMLScanner.new(road_content).all("td")&.send(:[], 1)
+      @road_percentage ||=begin
+        content = HTMLScanner.new(road_content).all("td")
+        content[1]
+     end
     end
 
     def url
