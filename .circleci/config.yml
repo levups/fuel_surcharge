@@ -40,7 +40,7 @@ jobs:
       - <<: *unit
   "jruby":
     docker:
-      - image: circleci/jruby:9.2.7
+      - image: circleci/jruby:9.2.6
     steps:
       - checkout
       - <<: *restore
