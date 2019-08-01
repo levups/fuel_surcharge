@@ -5,7 +5,7 @@ require "test_helper"
 module FuelSurcharge
   class TNTTest < Minitest::Test
     def test_time_period
-      nominal_case do
+      nominal_case(:html) do
         assert_equal "juillet 2019", @tnt.time_period
       end
 
@@ -15,9 +15,9 @@ module FuelSurcharge
     end
 
     def test_air
-      nominal_case do
-        assert_equal "17,50%", @tnt.air_percentage
-        assert_equal 1.175,    @tnt.air_multiplier
+      nominal_case(:json) do
+        assert_equal "17,00%", @tnt.air_percentage
+        assert_equal 1.170,    @tnt.air_multiplier
       end
 
       failing_case do
@@ -27,7 +27,7 @@ module FuelSurcharge
     end
 
     def test_road
-      nominal_case do
+      nominal_case(:html) do
         assert_equal "12,10%", @tnt.road_percentage
         assert_equal 1.121,    @tnt.road_multiplier
       end
@@ -63,8 +63,8 @@ module FuelSurcharge
 
     private
 
-    def nominal_case
-      sample_response = File.read("test/fixtures/tnt_sample_response.html")
+    def nominal_case(kind)
+      sample_response = File.read("test/fixtures/tnt_sample_response.#{kind}")
       HTTPRequest.stub_any_instance :response, sample_response do
         @tnt = TNT.new
         yield

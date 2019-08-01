@@ -16,7 +16,9 @@ module FuelSurcharge
     end
 
     def air_percentage
-      air_value&.last&.to_s
+      if value = air_value&.dig("list", 0, "surcharge")
+        value.tr(".", ",") << "%"
+      end
     end
 
     def road_multiplier
@@ -33,19 +35,27 @@ module FuelSurcharge
 
     private
 
-    ROAD_VALUES_REGEX = /Surcharge d[e\' ]+ (\w+ \d{4}) : (.+%)</.freeze
-    AIR_VALUES_REGEX  = /Surcharge du \d+ au \d+ (\w+ \d{4}) : (.*%)</.freeze
+    def json_air_url
+      "https://www.tnt.com/express/getDynamicData.europe.json"
+    end
 
     def air_value
-      response.to_s.scan(AIR_VALUES_REGEX).first
+      return if (json = air_response.to_s).empty?
+
+      JSON.parse(json)
     end
 
+    ROAD_VALUES_REGEX = /Surcharge d[e\' ]+ (\w+ \d{4}) : (.+%)</.freeze
     def road_value
-      response.to_s.scan(ROAD_VALUES_REGEX).first
+      road_response.to_s.scan(ROAD_VALUES_REGEX).first
     end
 
-    def response
+    def road_response
       @response ||= HTTPRequest.new(url).response
+    end
+
+    def air_response
+      @air_response ||= HTTPRequest.new(json_air_url).response
     end
 
     FRENCH_MONTHS_NAMES = %w[
