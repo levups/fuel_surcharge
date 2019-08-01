@@ -1,7 +1,18 @@
 # Change Log
 
-## [1.2.1](https://github.com/levups/fuel_surcharge/tree/1.2.1) (2019-07-22)
-[Full Changelog](https://github.com/levups/fuel_surcharge/compare/v1.2.0...1.2.1)
+## [1.2.2](https://github.com/levups/fuel_surcharge/tree/1.2.2) (2019-08-01)
+[Full Changelog](https://github.com/levups/fuel_surcharge/compare/v1.2.1...1.2.2)
+
+**Fixed bugs:**
+
+- TNT website change, again… [\#58](https://github.com/levups/fuel_surcharge/issues/58)
+
+**Merged pull requests:**
+
+- Correct TNT website parsing [\#59](https://github.com/levups/fuel_surcharge/pull/59) ([bobmaerten](https://github.com/bobmaerten))
+
+## [v1.2.1](https://github.com/levups/fuel_surcharge/tree/v1.2.1) (2019-07-22)
+[Full Changelog](https://github.com/levups/fuel_surcharge/compare/v1.2.0...v1.2.1)
 
 **Fixed bugs:**
 
@@ -9,6 +20,7 @@
 
 **Merged pull requests:**
 
+- Release v1.2.1 [\#57](https://github.com/levups/fuel_surcharge/pull/57) ([bobmaerten](https://github.com/bobmaerten))
 - Adapt to TNT / Chronopost website structure changes [\#56](https://github.com/levups/fuel_surcharge/pull/56) ([bobmaerten](https://github.com/bobmaerten))
 - Bump rake from 12.3.2 to 12.3.3 [\#54](https://github.com/levups/fuel_surcharge/pull/54) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Update standard requirement from ~\> 0.0.39 to ~\> 0.1.0 [\#53](https://github.com/levups/fuel_surcharge/pull/53) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
