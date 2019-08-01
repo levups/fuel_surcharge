@@ -43,11 +43,12 @@ module FuelSurcharge
 
       @tnt = TNT.new
 
-      time_period   = @tnt.time_period
-      current_month = FuelSurcharge::TNT::FRENCH_MONTHS_NAMES[Date.today.month - 1]
+      time_period    = @tnt.time_period
+      current_month  = FuelSurcharge::TNT::FRENCH_MONTHS_NAMES[Date.today.month - 1]
+      previous_month = FuelSurcharge::TNT::FRENCH_MONTHS_NAMES[Date.today.month - 2]
 
       assert_kind_of String, time_period
-      assert time_period.downcase.start_with?(current_month)
+      assert (time_period.downcase.start_with?(current_month) || time_period.downcase.start_with?(previous_month))
       assert time_period.end_with?(Date.today.year.to_s)
 
       assert_kind_of String,     @tnt.air_percentage
