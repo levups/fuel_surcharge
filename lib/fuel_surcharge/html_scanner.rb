@@ -8,10 +8,10 @@ module FuelSurcharge
       @scanner = StringScanner.new(source.to_s)
     end
 
-    def upcoming(tag)
+    def upcoming(tag, attribute = nil)
       return if @scanner.eos?
 
-      opening = "<#{tag}[^>]*>"
+      opening = attribute ? "<#{tag}\s[^>]*#{attribute}[^>]*>" : "<#{tag}[^>]*>"
       closing = "</#{tag}>"
       return unless @scanner.exist?(/#{opening}/) && @scanner.exist?(/#{closing}/)
 
@@ -22,11 +22,11 @@ module FuelSurcharge
       chunk[0...chunk.size - closing.size].strip
     end
 
-    def all(tag)
+    def all(tag, attribute = nil)
       chunks = []
       return chunks if @scanner.eos?
 
-      while (chunk = upcoming(tag))
+      while (chunk = upcoming(tag, attribute))
         chunks << chunk
       end
       chunks
