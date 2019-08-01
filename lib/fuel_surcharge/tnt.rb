@@ -16,7 +16,7 @@ module FuelSurcharge
     end
 
     def air_percentage
-      if value = air_value&.dig("list", 0, "surcharge")
+      if (value = air_value&.dig("list", 0, "surcharge"))
         value.tr(".", ",") << "%"
       end
     end
