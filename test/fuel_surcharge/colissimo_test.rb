@@ -18,7 +18,7 @@ module FuelSurcharge
     def test_air
       nominal_case do
         assert_equal "3,58%", @colissimo.air_percentage
-        assert_equal 1.0358,  @colissimo.air_multiplier
+        assert_equal 1.0358, @colissimo.air_multiplier
       end
 
       failing_case do
@@ -30,7 +30,7 @@ module FuelSurcharge
     def test_road
       nominal_case do
         assert_equal "2,24%", @colissimo.road_percentage
-        assert_equal 1.0224,  @colissimo.road_multiplier
+        assert_equal 1.0224, @colissimo.road_multiplier
       end
 
       failing_case do
@@ -44,11 +44,11 @@ module FuelSurcharge
 
       @colissimo = Colissimo.new
 
-      time_period   = @colissimo.time_period
+      time_period = @colissimo.time_period
       current_month = Date.today.month.to_s.rjust(2, "0")
-      next_month    = Date.today.next_month.month.to_s.rjust(2, "0")
-      current_year  = Date.today.year.to_s.rjust(2, "0")
-      next_year     = Date.today.next_year.year.to_s
+      next_month = Date.today.next_month.month.to_s.rjust(2, "0")
+      current_year = Date.today.year.to_s.rjust(2, "0")
+      next_year = Date.today.next_year.year.to_s
 
       assert_kind_of String, time_period
 
@@ -60,13 +60,13 @@ module FuelSurcharge
         assert time_period.end_with?(current_year)
       end
 
-      assert_kind_of String,     @colissimo.air_percentage
-      refute_empty               @colissimo.air_percentage
+      assert_kind_of String, @colissimo.air_percentage
+      refute_empty @colissimo.air_percentage
       assert_kind_of BigDecimal, @colissimo.air_multiplier
       assert_operator @colissimo.air_multiplier, :>=, 1.0
 
-      assert_kind_of String,     @colissimo.road_percentage
-      refute_empty               @colissimo.road_percentage
+      assert_kind_of String, @colissimo.road_percentage
+      refute_empty @colissimo.road_percentage
       assert_kind_of BigDecimal, @colissimo.road_multiplier
       assert_operator @colissimo.road_multiplier, :>=, 1.0
     end

@@ -8,16 +8,16 @@ require "fuel_surcharge/version"
 Gem::Specification.new do |spec|
   spec.required_ruby_version = "~> 2.5"
 
-  spec.name    = "fuel_surcharge"
+  spec.name = "fuel_surcharge"
   spec.version = FuelSurcharge::VERSION
   spec.authors = ["Bob Maerten", "Clément Joubert"]
-  spec.email   = ["bob@levups.com", "clement@levups.com"]
+  spec.email = ["bob@levups.com", "clement@levups.com"]
 
-  spec.summary     = "Retrieve current month's Transporters' fuel surcharge"
+  spec.summary = "Retrieve current month's Transporters' fuel surcharge"
   spec.description = "A simple gem to fetch transporters data every month."
 
   spec.homepage = "https://rubygems.org/gems/fuel_surcharge"
-  spec.license  = "MIT"
+  spec.license = "MIT"
 
   spec.metadata = {
     "bug_tracker_uri" => "https://github.com/levups/fuel_surcharge/issues",
@@ -31,8 +31,8 @@ Gem::Specification.new do |spec|
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features|.github)/}) }
   end
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.bindir = "exe"
+  spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
   spec.add_dependency "http", "~> 4.0"

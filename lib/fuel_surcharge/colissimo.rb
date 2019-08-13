@@ -24,7 +24,7 @@ module FuelSurcharge
       @parsed_values = {}
       return unless xml_root
 
-      caps  = xml_root.elements.first
+      caps = xml_root.elements.first
       month = caps.elements.first
       month.elements.each do |element|
         @parsed_values[element.name] = element.text

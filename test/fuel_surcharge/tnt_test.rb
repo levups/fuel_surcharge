@@ -17,7 +17,7 @@ module FuelSurcharge
     def test_air
       nominal_case(:json) do
         assert_equal "17,00%", @tnt.air_percentage
-        assert_equal 1.170,    @tnt.air_multiplier
+        assert_equal 1.170, @tnt.air_multiplier
       end
 
       failing_case do
@@ -29,7 +29,7 @@ module FuelSurcharge
     def test_road
       nominal_case(:html) do
         assert_equal "12,10%", @tnt.road_percentage
-        assert_equal 1.121,    @tnt.road_multiplier
+        assert_equal 1.121, @tnt.road_multiplier
       end
 
       failing_case do
@@ -43,21 +43,21 @@ module FuelSurcharge
 
       @tnt = TNT.new
 
-      time_period    = @tnt.time_period
-      current_month  = FuelSurcharge::TNT::FRENCH_MONTHS_NAMES[Date.today.month - 1]
+      time_period = @tnt.time_period
+      current_month = FuelSurcharge::TNT::FRENCH_MONTHS_NAMES[Date.today.month - 1]
       previous_month = FuelSurcharge::TNT::FRENCH_MONTHS_NAMES[Date.today.month - 2]
 
       assert_kind_of String, time_period
       assert time_period.downcase.start_with?(current_month, previous_month)
       assert time_period.end_with?(Date.today.year.to_s)
 
-      assert_kind_of String,     @tnt.air_percentage
-      refute_empty               @tnt.air_percentage
+      assert_kind_of String, @tnt.air_percentage
+      refute_empty @tnt.air_percentage
       assert_kind_of BigDecimal, @tnt.air_multiplier
       assert_operator @tnt.air_multiplier, :>=, 1.0
 
-      assert_kind_of String,     @tnt.road_percentage
-      refute_empty               @tnt.road_percentage
+      assert_kind_of String, @tnt.road_percentage
+      refute_empty @tnt.road_percentage
       assert_kind_of BigDecimal, @tnt.road_multiplier
       assert_operator @tnt.road_multiplier, :>=, 1.0
     end

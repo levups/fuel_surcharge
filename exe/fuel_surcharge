@@ -3,9 +3,9 @@
 
 require "fuel_surcharge"
 
-colissimo  = FuelSurcharge::Colissimo.new
+colissimo = FuelSurcharge::Colissimo.new
 chronopost = FuelSurcharge::Chronopost.new
-tnt        = FuelSurcharge::TNT.new
+tnt = FuelSurcharge::TNT.new
 
 [colissimo, chronopost, tnt].each do |fuel_surcharge|
   puts "---------------------------------------------------"
