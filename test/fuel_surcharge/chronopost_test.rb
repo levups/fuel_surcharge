@@ -38,7 +38,7 @@ module FuelSurcharge
       end
     end
 
-    FRENCH_MONTHS = %w[janvier février mars avril mai juin juillet août
+    FRENCH_MONTHS = %w[janvier février mars avril mai juin juillet aout
                        septembre octobre novembre décembre].freeze
 
     def test_live_values
