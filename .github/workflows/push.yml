@@ -1,0 +1,25 @@
+on: 
+  release:
+    types: [published]
+name: Push to rubygems
+jobs:
+  build:
+    name: Is current HEAD is master?
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Ruby 2.6
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.6.4
+    - name: Build the gem
+      run: |
+        gem install bundler
+        bundle install --jobs 4 --retry 3
+        bundle exec rake build
+    - name: Publish gem to rubygems.org
+      uses: scarhand/actions-ruby@26064b2
+      env:
+        RUBYGEMS_AUTH_TOKEN: ${{ secrets.RUBYGEMS_AUTH_TOKEN }}
+      with:
+        args: push pkg/*.gem
