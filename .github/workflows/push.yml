@@ -4,7 +4,7 @@ on:
 name: Push to rubygems
 jobs:
   build:
-    name: Is current HEAD is master?
+    name: Is current HEAD master ?
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
