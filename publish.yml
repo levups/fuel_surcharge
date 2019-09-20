@@ -1,7 +1,7 @@
-on: 
+name: publish
+on:
   release:
     types: [published]
-name: Push to rubygems
 jobs:
   build:
     name: Is current HEAD master ?
