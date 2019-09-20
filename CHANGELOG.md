@@ -1,20 +1,35 @@
 # Change Log
 
-## [1.2.2](https://github.com/levups/fuel_surcharge/tree/1.2.2) (2019-08-01)
-[Full Changelog](https://github.com/levups/fuel_surcharge/compare/v1.2.1...1.2.2)
+## [1.2.3](https://github.com/levups/fuel_surcharge/tree/1.2.3) (2019-09-20)
+[Full Changelog](https://github.com/levups/fuel_surcharge/compare/v1.2.2...1.2.3)
 
-**Fixed bugs:**
+**Closed issues:**
+
+- Chronopost fails to parse august in French [\#66](https://github.com/levups/fuel_surcharge/issues/66)
+
+**Merged pull requests:**
+
+- Replace HCL workflow with new github action style [\#65](https://github.com/levups/fuel_surcharge/pull/65) ([bobmaerten](https://github.com/bobmaerten))
+- Bump standard from 0.1.3 to 0.1.4 [\#64](https://github.com/levups/fuel_surcharge/pull/64) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump standard from 0.1.2 to 0.1.3 [\#63](https://github.com/levups/fuel_surcharge/pull/63) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump standard from 0.1.0 to 0.1.2 [\#62](https://github.com/levups/fuel_surcharge/pull/62) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
+## [v1.2.2](https://github.com/levups/fuel_surcharge/tree/v1.2.2) (2019-08-01)
+[Full Changelog](https://github.com/levups/fuel_surcharge/compare/v1.2.1...v1.2.2)
+
+**Closed issues:**
 
 - TNT website change, again… [\#58](https://github.com/levups/fuel_surcharge/issues/58)
 
 **Merged pull requests:**
 
+- Release v1.2.2 [\#60](https://github.com/levups/fuel_surcharge/pull/60) ([bobmaerten](https://github.com/bobmaerten))
 - Correct TNT website parsing [\#59](https://github.com/levups/fuel_surcharge/pull/59) ([bobmaerten](https://github.com/bobmaerten))
 
 ## [v1.2.1](https://github.com/levups/fuel_surcharge/tree/v1.2.1) (2019-07-22)
 [Full Changelog](https://github.com/levups/fuel_surcharge/compare/v1.2.0...v1.2.1)
 
-**Fixed bugs:**
+**Closed issues:**
 
 - Website changes for TNT and Chronopost fuel surcharge infos [\#55](https://github.com/levups/fuel_surcharge/issues/55)
 
@@ -31,7 +46,7 @@
 ## [v1.2.0](https://github.com/levups/fuel_surcharge/tree/v1.2.0) (2019-04-23)
 [Full Changelog](https://github.com/levups/fuel_surcharge/compare/v1.1.0...v1.2.0)
 
-**Fixed bugs:**
+**Closed issues:**
 
 - Error in gem push workflow action [\#32](https://github.com/levups/fuel_surcharge/issues/32)
 
@@ -58,13 +73,10 @@
 ## [v1.1.0](https://github.com/levups/fuel_surcharge/tree/v1.1.0) (2019-02-08)
 [Full Changelog](https://github.com/levups/fuel_surcharge/compare/v1.0.0...v1.1.0)
 
-**Implemented enhancements:**
-
-- Auto-publish new gem versions using Github Actions [\#25](https://github.com/levups/fuel_surcharge/issues/25)
-
-**Fixed bugs:**
+**Closed issues:**
 
 - Error extracting time\_period for Chronopost [\#26](https://github.com/levups/fuel_surcharge/issues/26)
+- Auto-publish new gem versions using Github Actions [\#25](https://github.com/levups/fuel_surcharge/issues/25)
 
 **Merged pull requests:**
 
@@ -98,13 +110,11 @@
 ## [v0.2.0](https://github.com/levups/fuel_surcharge/tree/v0.2.0) (2018-11-28)
 [Full Changelog](https://github.com/levups/fuel_surcharge/compare/v0.1.0...v0.2.0)
 
-**Implemented enhancements:**
-
-- Rename Tnt class to TNT [\#5](https://github.com/levups/fuel_surcharge/issues/5)
-
 **Closed issues:**
 
+- Rename Tnt class to TNT [\#5](https://github.com/levups/fuel_surcharge/issues/5)
 - Bump to v.0.2.0 [\#7](https://github.com/levups/fuel_surcharge/issues/7)
+- Rename Tnt to TNT for better consistency [\#4](https://github.com/levups/fuel_surcharge/issues/4)
 
 **Merged pull requests:**
 
