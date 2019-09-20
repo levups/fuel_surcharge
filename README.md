@@ -2,8 +2,6 @@
 
 ![Build workflow](https://github.com/levups/fuel_surcharge/workflows/build/badge.svg)
 
-![Publish workflow](https://github.com/levups/fuel_surcharge/workflows/publish/badge.svg)
-
 Retrieve current air and road rates applied to transporters shipping costs and
 convert them to multipliers you can directly use in your app to calculate
 precise shipping costs.
