@@ -41,6 +41,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "github_changelog_generator", "~> 1.14"
   spec.add_development_dependency "minitest", "~> 5.0"
   spec.add_development_dependency "minitest-stub_any_instance", "~> 1.0"
-  spec.add_development_dependency "rake", "~> 12.3"
+  spec.add_development_dependency "rake", "~> 13.0"
   spec.add_development_dependency "standard", "~> 0.1.0"
 end
