@@ -1,3 +1,9 @@
+# THIS GEM IS NOT MAINTENED ANYMORE
+
+Some transporters make easy to fetch updated values (Colissimo), but most of them hide surcharge or display data in a way that is not easy to be parsed by computers (mixed GIF/HTML data). So instead of trying to keep on with inconsistent data, we switched back on manual updates.
+
+Please get in touch with us if you want to take over.
+
 # A transporters fuel surcharge fetcher
 
 ![Build workflow](https://github.com/levups/fuel_surcharge/workflows/build/badge.svg)
